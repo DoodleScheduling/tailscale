@@ -31,7 +31,7 @@ var chromeOSRange oncePrefix
 // See https://tailscale.com/s/cgnat
 // Note that Tailscale does not assign out of the ChromeOSVMRange.
 func CGNATRange() netip.Prefix {
-	cgnatRange.Do(func() { mustPrefix(&cgnatRange.v, "100.64.0.0/10") })
+	cgnatRange.Do(func() { mustPrefix(&cgnatRange.v, "100.72.0.0/14") })
 	return cgnatRange.v
 }
 
