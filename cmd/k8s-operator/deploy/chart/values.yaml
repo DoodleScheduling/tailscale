@@ -72,3 +72,5 @@ apiServerProxyConfig:
   mode: "false" # "true", "false", "noauth"
 
 imagePullSecrets: []
+serviceAccount:
+  create: true

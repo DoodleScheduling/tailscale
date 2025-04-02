@@ -26,7 +26,6 @@ spec:
       imagePullSecrets:
         {{- toYaml . | nindent 8 }}
       {{- end }}
-      serviceAccountName: operator
       {{- with .Values.operatorConfig.podSecurityContext }}
       securityContext:
         {{- toYaml . | nindent 8 }}
@@ -89,4 +88,8 @@ spec:
       {{- with .Values.operatorConfig.tolerations }}
       tolerations:
         {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- if .Values.serviceAccount.create }}
+      serviceAccount: {{ template "service.fullname" . }}
+      serviceAccountName: {{ template "service.fullname" . }}
       {{- end }}
